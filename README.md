@@ -1,2 +1,2 @@
 # design-practices
-OOPS Design and Problem Solving Examples for practice
+Practice coding for software OOPS design and patterns in JAVA
