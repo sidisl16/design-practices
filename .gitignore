@@ -29,7 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
-src/main/java/META-INF/
 
 
 #Log files
