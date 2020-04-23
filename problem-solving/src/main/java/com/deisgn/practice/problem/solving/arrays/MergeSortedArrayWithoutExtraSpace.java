@@ -70,21 +70,21 @@ public class MergeSortedArrayWithoutExtraSpace {
 		int a1[] = { 10, 12 };
 		int b2[] = { 5, 18, 20 };
 
-		//solution(a1, b2);// 5 10 12 18 20
+		solution(a1, b2);// 5 10 12 18 20
 		
 		System.out.println();
 
 		int a3[] = { 1, 5, 9, 10, 15, 20 };
 		int b3[] = { 2, 3, 8, 13 };
 		
-		//solution(a3, b3);
+		solution(a3, b3);
 		
 		System.out.println();
 		
 		int a4[] = {10};
 		int b4[] = {2, 3};
 		
-		//solution(a4, b4);
+		solution(a4, b4);
 		
 	}
 }
