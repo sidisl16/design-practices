@@ -4,25 +4,24 @@ public class KthSmallestElement {
 
 	public static void solution(int a[], int k) {
 
-		int res = quicksort(a, 0, a.length - 1, k);
-		System.out.println(res);
+		quicksort(a, 0, a.length - 1, k);
+
+		System.out.println(a[k - 1]);
+
 	}
 
 	private static int quicksort(int[] a, int lb, int ub, int k) {
 
 		if (lb < ub) {
-			int loc = partition(a, lb, ub);
-			
-			if (loc == k-1) {
-				return a[loc];
-			}
-			
-			if (loc < k-1)
-				return quicksort(a, lb, loc - 1, k);
-			
-			return quicksort(a, loc + 1, ub, k);
-		}
 
+			// Some more optimization needed here
+			// Logic will be if loc == k-1 return the element
+			// if loc > k return right hand side else left hand side but it's not working
+			int loc = partition(a, lb, ub);
+
+			quicksort(a, lb, loc - 1, k);
+			quicksort(a, loc + 1, ub, k);
+		}
 		return -1;
 	}
 
@@ -62,6 +61,10 @@ public class KthSmallestElement {
 		int a[] = { 7, 10, 4, 3, 20, 15 };
 
 		solution(a, 3);// 7
+
+		int a1[] = { 7, 10, 4, 20, 15 };
+
+		solution(a1, 4);// 15
 	}
 
 }
