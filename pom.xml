@@ -10,5 +10,6 @@
   	<module>inmemory-filesystem</module>
   	<module>problem-solving</module>
   	<module>movie-ticket-booking-system</module>
+  	<module>parking-lot</module>
   </modules>
 </project>
