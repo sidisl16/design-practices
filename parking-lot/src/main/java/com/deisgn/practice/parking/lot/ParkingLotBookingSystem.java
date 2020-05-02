@@ -4,11 +4,8 @@ import java.util.List;
 
 public class ParkingLotBookingSystem extends ParkingLotTemplate {
 
-	private ParkingLot parkingLot;
-
 	protected ParkingLotBookingSystem(ParkingLot parkingLot) {
 		super(parkingLot);
-		this.parkingLot = parkingLot;
 	}
 
 	@Override
