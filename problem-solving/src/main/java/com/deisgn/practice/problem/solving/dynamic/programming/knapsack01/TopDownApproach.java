@@ -1,14 +1,13 @@
 package com.deisgn.practice.problem.solving.dynamic.programming.knapsack01;
 
-public class TopDownApproach implements Knapsack01 {
+public class TopDownApproach extends Knapsack01Template {
 
-	/**
-	 * Converting recursive to top down approach
-	 */
+	public TopDownApproach(int n, int w) {
+		super(n, w);
+	}
+
 	@Override
-	public int getMaxProfit(int[] weight, int[] profit, int w, int n) {
-		// all initialized with 0's
-		int[][] mem = new int[n + 1][w + 1];
+	protected int solution(int[] weight, int[] profit, int w, int n) {
 
 		// i -> n(size(profit and weight)), j -> w
 		for (int i = 1; i < n + 1; i++) {
@@ -27,17 +26,7 @@ public class TopDownApproach implements Knapsack01 {
 				}
 			}
 		}
-		print(mem);
 		return mem[n][w];
-	}
-
-	public void print(int mem[][]) {
-		for (int i = 0; i < mem.length; i++) {
-			for (int j = 0; j < mem[i].length; j++) {
-				System.out.print(mem[i][j] + " ");
-			}
-			System.out.println();
-		}
 	}
 
 }
