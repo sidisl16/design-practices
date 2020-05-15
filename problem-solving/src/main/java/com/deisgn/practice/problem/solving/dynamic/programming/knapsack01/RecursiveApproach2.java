@@ -2,7 +2,7 @@ package com.deisgn.practice.problem.solving.dynamic.programming.knapsack01;
 
 public class RecursiveApproach2 implements Knapsack01 {
 
-	protected static int[][] mem;
+	private static int[][] mem;
 
 	public RecursiveApproach2(int w, int n) {
 		mem = new int[n + 1][w + 1];
@@ -25,5 +25,14 @@ public class RecursiveApproach2 implements Knapsack01 {
 
 		return (mem[n][w] = Math.max(profit[n - 1] + getMaxProfit(weight, profit, w - weight[n - 1], n - 1),
 				getMaxProfit(weight, profit, w, n - 1)));
+	}
+
+	public void print() {
+		for (int i = 0; i < mem.length; i++) {
+			for (int j = 0; j < mem[i].length; j++) {
+				System.out.print(mem[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 }

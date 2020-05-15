@@ -15,5 +15,8 @@ public class Application {
 		Knapsack01Strategy solution1 = new Knapsack01Strategy(new RecursiveMemoizationApproach(bagWeight, n));
 		System.out.println(solution1.getMaxProfit(weight, profit, bagWeight, n));
 
+		Knapsack01Strategy solution2 = new Knapsack01Strategy(new TopDownApproach());
+		System.out.println(solution2.getMaxProfit(weight, profit, bagWeight, n));
+
 	}
 }

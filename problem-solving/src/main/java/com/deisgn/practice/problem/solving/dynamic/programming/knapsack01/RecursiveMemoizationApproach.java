@@ -1,26 +1,17 @@
 package com.deisgn.practice.problem.solving.dynamic.programming.knapsack01;
 
-public class RecursiveMemoizationApproach extends RecursiveApproach2 {
+public class RecursiveMemoizationApproach implements Knapsack01 {
+
+	private RecursiveApproach2 recursiveApproach2;
 
 	public RecursiveMemoizationApproach(int w, int n) {
-		super(w, n);
+		recursiveApproach2 = new RecursiveApproach2(w, n);
 	}
 
 	@Override
 	public int getMaxProfit(int[] weight, int[] profit, int w, int n) {
-		int maxProfite = super.getMaxProfit(weight, profit, w, n);
-		print();
+		int maxProfite = recursiveApproach2.getMaxProfit(weight, profit, w, n);
+		recursiveApproach2.print();
 		return maxProfite;
 	}
-
-	private void print() {
-		for (int i = 0; i < mem.length; i++) {
-			for (int j = 0; j < mem[i].length; j++) {
-				System.out.print(mem[i][j] + " ");
-			}
-			System.out.println();
-		}
-
-	}
-
 }
