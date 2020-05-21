@@ -2,23 +2,27 @@ package com.deisgn.practice.problem.solving.arrays;
 
 public class KadanesAlgorithm {
 
-	public static void solution(int a[]) {
-		int max = -Integer.MAX_VALUE;
-		int sum = 0;
-		
-		for(int i=0; i<a.length; i++) {
-			sum = sum + a[i];
-			max = Math.max(max, sum);
+	public static int getMaxSum(int[] a, int n) {
+
+		//Using DP
+		int local_max = a[0];
+		int max = a[0];
+
+		for (int i = 1; i < n; i++) {
+			local_max = Math.max(local_max + a[i], a[i]);
+			max = Math.max(local_max, max);
 		}
-		System.out.println(max);
+
+		return max;
 	}
 
 	public static void main(String[] args) {
 
 		int a[] = { 1, 2, 3, -2, 5 };
-		solution(a);//9
-
+		
+		System.out.println(getMaxSum(a, a.length));// 9
+		
 		int a2[] = { -1, -2, -3, -4 };
-		solution(a2);//-1
+		System.out.println(getMaxSum(a2, a2.length));// -1
 	}
 }
