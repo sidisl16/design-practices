@@ -5,6 +5,9 @@ import java.util.Stack;
 public class LengthOfLongestValidSubstring {
 
 	public void solution(String str) {
+		if(str.isEmpty()) {
+			
+		}
 		Stack<Character> stack = new Stack<>();
 		int count = 0;
 		for (char ch : str.toCharArray()) {

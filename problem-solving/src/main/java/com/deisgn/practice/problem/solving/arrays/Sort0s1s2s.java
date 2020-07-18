@@ -2,20 +2,20 @@ package com.deisgn.practice.problem.solving.arrays;
 
 public class Sort0s1s2s {
 
-	public static void solution(int[] a) {
+	public static void solution(int[] nums) {
 
 		int low = 0;
 		int mid = 0;
-		int high = a.length - 1;
+		int high = nums.length - 1;
 
 		while (mid < high) {
 
-			if (a[mid] == 0) {
-				swap(a, mid, low);
+			if (nums[mid] == 0) {
+				swap(nums, mid, low);
 				mid++;
 				low++;
-			} else if (a[mid] == 2) {
-				swap(a, mid, high);
+			} else if (nums[mid] == 2) {
+				swap(nums, mid, high);
 				high--;
 			} else {
 				mid++; // if mid is 1
@@ -23,8 +23,8 @@ public class Sort0s1s2s {
 
 		}
 
-		for (int i = 0; i < a.length; i++) {
-			System.out.print(a[i] + " ");
+		for (int i = 0; i < nums.length; i++) {
+			System.out.print(nums[i] + " ");
 		}
 	}
 
@@ -45,5 +45,11 @@ public class Sort0s1s2s {
 		System.out.println();
 		int[] a2 = { 2, 0, 1, 0, 2, 2 };
 		solution(a2);
+
+		System.out.println();
+
+		int[] a3 = { 2, 0, 1 };
+		solution(a3);
+
 	}
 }
