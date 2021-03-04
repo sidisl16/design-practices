@@ -17,9 +17,11 @@ public class FirstNegativeNoInWindow {
 			if (j - i + 1 < k) {
 				j++;
 			} else if (j - i + 1 == k) {
-
-				if (list.peek() != null && list.peek() == a[i]) {
-					System.out.println(list.remove());
+				if (list.peek() != null) {
+					System.out.println(list.peek());
+					if (list.peek() == a[i]) {
+						list.remove();
+					}
 				} else {
 					System.out.println(0);
 				}
