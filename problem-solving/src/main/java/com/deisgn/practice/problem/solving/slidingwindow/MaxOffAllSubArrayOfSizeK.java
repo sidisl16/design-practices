@@ -10,13 +10,13 @@ public class MaxOffAllSubArrayOfSizeK {
 	private static void solution(int a[], int k) {
 
 		int i = 0, j = 0;
-		Queue<Integer> list = new LinkedList<>();
+		LinkedList<Integer> list = new LinkedList<>();
 		List<Integer> result = new ArrayList<>();
 
 		while (j < a.length) {
 
-			while (!list.isEmpty() && a[j] > list.peek()) {
-				list.remove();
+			while (!list.isEmpty() && a[j] > list.getLast()) {
+				list.removeLast();
 			}
 
 			list.add(a[j]);
@@ -40,6 +40,8 @@ public class MaxOffAllSubArrayOfSizeK {
 
 	public static void main(String[] args) {
 		solution(new int[] { 1, 3, -1, -3, 5, 3, 6, 7 }, 3); // 3, 3, 5, 5, 6, 6, 7
+
+		solution(new int[] { 1, 3, 1, 2, 0, 5 }, 3);
 	}
 
 }

@@ -14,7 +14,7 @@ public class MaximumAreaHistogram {
 
 		for (int i = 1; i < n; i++) {
 
-			while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+			while (!stack.isEmpty() && heights[i] <= heights[stack.peek()]) {
 				stack.pop();
 			}
 
