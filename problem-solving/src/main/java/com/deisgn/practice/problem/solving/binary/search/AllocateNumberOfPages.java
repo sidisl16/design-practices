@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class AllocateNumberOfPages {
 
-	public static void solution(int books[], int k) {
+	public static void solution(int nums[], int m) {
 
-		int start = Arrays.stream(books).max().getAsInt();
-		int end = Arrays.stream(books).sum();
+		int start = Arrays.stream(nums).max().getAsInt();
+		int end = Arrays.stream(nums).sum();
 
 		int res = -1;
 
@@ -15,7 +15,7 @@ public class AllocateNumberOfPages {
 
 			int mid = start + (end - start) / 2;
 
-			if (isValid(books, mid, k)) {
+			if (isValid(nums, mid, m)) {
 				res = mid;
 				end = mid - 1;
 			} else {
@@ -30,7 +30,7 @@ public class AllocateNumberOfPages {
 		int noOfStudents = 1;
 		int sum = 0;
 		for (int i = 0; i < books.length; i++) {
-			
+
 			sum += books[i];
 
 			if (sum > mid) {
@@ -47,6 +47,8 @@ public class AllocateNumberOfPages {
 
 	public static void main(String[] args) {
 		solution(new int[] { 10, 20, 30, 40 }, 2);
+
+		solution(new int[] { 7, 2, 5, 10, 8 }, 2);
 	}
 
 }
