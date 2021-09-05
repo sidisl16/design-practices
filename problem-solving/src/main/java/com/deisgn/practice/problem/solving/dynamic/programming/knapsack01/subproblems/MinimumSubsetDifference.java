@@ -53,15 +53,51 @@ public class MinimumSubsetDifference {
 
 			System.out.print(String.format("%6d", Math.abs(2 * j - sum)));
 		}
-
 		System.out.println();
+		System.out.println(min);
 
 		return min;
 	}
 
+	public static void solution(int[] nums) {
+
+		int sum = 0;
+
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+		}
+
+		int minDiff = Integer.MAX_VALUE;
+
+		for (int i = 0; i <= sum; i++) {
+			if (subsetSum(nums, nums.length, i)) {
+				int sb = Math.abs(sum - i);
+				minDiff = Math.min(minDiff, Math.abs(sb - i));
+			}
+		}
+
+		System.out.println(minDiff);
+	}
+
+	public static boolean subsetSum(int[] nums, int n, int sum) {
+
+		if (n == 0 && sum > 0) {
+			return false;
+		}
+
+		if (sum == 0) {
+			return true;
+		}
+
+		if (nums[n - 1] <= sum) {
+			return subsetSum(nums, n - 1, sum - nums[n - 1]) || subsetSum(nums, n - 1, sum);
+		}
+
+		return subsetSum(nums, n - 1, sum);
+	}
+
 	public static void main(String[] args) {
-		int[] a = { 1, 6, 11, 5 };
-		System.out.println(solution(a, a.length));// 1
+		solution(new int[] { 1, 6, 5, 11 }, 4);
 	}
 
 }
