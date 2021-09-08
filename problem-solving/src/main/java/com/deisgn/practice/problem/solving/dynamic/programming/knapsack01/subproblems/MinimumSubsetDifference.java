@@ -71,8 +71,7 @@ public class MinimumSubsetDifference {
 
 		for (int i = 0; i <= sum; i++) {
 			if (subsetSum(nums, nums.length, i)) {
-				int sb = Math.abs(sum - i);
-				minDiff = Math.min(minDiff, Math.abs(sb - i));
+				minDiff = Math.min(minDiff, Math.abs(sum - 2 * i));
 			}
 		}
 
@@ -97,7 +96,7 @@ public class MinimumSubsetDifference {
 	}
 
 	public static void main(String[] args) {
-		solution(new int[] { 1, 6, 5, 11 }, 4);
+		solution(new int[] { 1, 6, 5, 11 });
 	}
 
 }
