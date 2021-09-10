@@ -69,7 +69,7 @@ public class PallimdromePartition {
 	}
 
 	public static void main(String[] args) {
-		String s = "nitin";
+		String s = "madam";
 		System.out.println(getCostOptimised(s, 0, s.length() - 1));
 
 		mem = new int[1000][1000];

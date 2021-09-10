@@ -32,7 +32,7 @@ public class MCM {
 			return mem[i][j];
 		}
 
-		for (int k = i; k <= j - 1; k++) {
+		for (int k = i; k < j; k++) {
 			int cost = getMinCostRecursive(a, i, k) + getMinCostRecursive(a, k + 1, j) + (a[i - 1] * a[k] * a[j]);
 			min = Math.min(min, cost);
 		}
@@ -43,7 +43,7 @@ public class MCM {
 	public static void main(String[] args) {
 
 		int a[] = { 40, 20, 30, 10, 30 };
-		System.out.println(getMinCostRecursiveMemoize(a, 1, a.length - 1));
+		System.out.println(getMinCostRecursive(a, 1, a.length - 1));
 	}
 
 }

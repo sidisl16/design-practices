@@ -31,15 +31,40 @@ public class RodCutting {
 		return mem[n][sum];
 	}
 
+	private static int[][] memoization;
+
+	public static int getMaxPriceRecursive(int[] length, int[] price, int n, int rodlength) {
+
+		if (rodlength == 0 || n == 0) {
+			return 0;
+		}
+
+		if (memoization[n - 1][rodlength] > 0) {
+			return memoization[n - 1][rodlength];
+		}
+
+		if (length[n - 1] <= rodlength) {
+
+			return memoization[n - 1][rodlength] = Math.max(
+					price[n - 1] + getMaxPrice(length, price, n, rodlength - length[n - 1]),
+					getMaxPrice(length, price, n - 1, rodlength));
+		}
+
+		return memoization[n - 1][rodlength] = getMaxPrice(length, price, n - 1, rodlength);
+	}
+
 	public static void main(String[] args) {
 
-		int[] length = { 1, 2, 3, 4 };
+		int[] length = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-		int[] price = { 5, 6, 8, 10 };
+		int[] price = { 1, 5, 8, 9, 10, 17, 17, 20 };
 
-		int lengthOfRod = 4;
+		int lengthOfRod = 8;
 
 		System.out.println(getMaxPrice(length, price, length.length, lengthOfRod));
+
+		memoization = new int[length.length + 1][length.length + 1];
+		System.out.println(getMaxPriceRecursive(length, price, length.length, lengthOfRod));
 
 	}
 }

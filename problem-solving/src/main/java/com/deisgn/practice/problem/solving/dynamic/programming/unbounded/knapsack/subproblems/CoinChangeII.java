@@ -66,12 +66,33 @@ public class CoinChangeII {
 
 	}
 
+	static int minCount = Integer.MAX_VALUE;
+
+	public static int getMinCoinsRecursive(int[] coin, int n, int sum, int count) {
+
+		if (sum == 0) {
+			minCount = Math.min(minCount, count);
+			return 1;
+		}
+
+		if ((sum < 0 && n >= 1) || n == 0) {
+			return 0;
+		}
+
+		return getMinCoinsRecursive(coin, n, sum - coin[n - 1], count + 1)
+				+ getMinCoinsRecursive(coin, n - 1, sum, count);
+	}
+
 	public static void main(String[] args) {
 
 		int[] coin = { 25, 10, 5 };
 		int sum = 30;
 
 		System.out.println(getMinNoOfCoins(coin, coin.length, sum));
+
+		getMinCoinsRecursive(coin, coin.length, sum, 0);
+
+		System.out.println(minCount);
 	}
 
 }
