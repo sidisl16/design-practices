@@ -14,7 +14,7 @@ public class InversionOfArray {
 		int count = 0;
 		if (i < j) {
 			int mid = (i + j) / 2;
-			count = mergesort(a, i, mid);
+			count += mergesort(a, i, mid);
 			count += mergesort(a, mid + 1, j);
 			count += merge(a, i, mid, j);
 		}

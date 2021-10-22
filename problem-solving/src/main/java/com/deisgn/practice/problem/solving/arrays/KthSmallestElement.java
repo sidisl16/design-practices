@@ -14,41 +14,43 @@ public class KthSmallestElement {
 
 		if (lb < ub) {
 
-			// Some more optimization needed here
-			// Logic will be if loc == k-1 return the element
-			// if loc > k return right hand side else left hand side but it's not working
 			int loc = partition(a, lb, ub);
 
-			quicksort(a, lb, loc - 1, k);
-			quicksort(a, loc + 1, ub, k);
+			if (loc == k - 1) {
+				return loc;
+			} else if (k - 1 < loc) {
+				return quicksort(a, lb, loc, k);
+			}
+			return quicksort(a, loc + 1, ub, k);
 		}
 		return -1;
 	}
 
 	private static int partition(int[] a, int lb, int ub) {
 
-		int start = lb;
-		int end = ub;
 		int pivot = a[lb];
+		int i = lb;
+		int j = ub;
 
-		while (start < end) {
+		while (i < j) {
 
-			while (a[start] <= pivot && start < a.length - 1) {
-				start++;
+			while (i <= a.length - 1 && pivot >= a[i]) {
+				i++;
 			}
 
-			while (a[end] > pivot && end >= 0) {
-				end--;
+			while (j >= 0 && pivot < a[j]) {
+				j--;
 			}
 
-			if (start < end) {
-				swap(a, start, end);
+			if (i < j) {
+				swap(a, i, j);
 			}
 		}
 
-		swap(a, lb, end);
+		swap(a, lb, j);
 
-		return end;
+		return j;
+
 	}
 
 	private static void swap(int[] a, int i, int j) {

@@ -2,26 +2,6 @@ package com.deisgn.practice.problem.solving.arrays;
 
 public class MergeSortedArrayWithoutExtraSpace {
 
-	/** Insertion sort
-	 *  
-	 *  for (int j = 1; j < a.length; j++) {
-
-		int i = j - 1;
-
-		int temp = a[j];
-
-			while (i >= 0 && (temp <= a[i])) {
-				i--;
-			}
-
-			a[i + 1] = temp;
-		}
-
-		for (int i = 0; i < a.length; i++) {
-			System.out.print(a[i] + " ");
-		}
-	 *  
-	 */
 	public static void solution(int a[], int b[]) {
 
 		int m = a.length;
