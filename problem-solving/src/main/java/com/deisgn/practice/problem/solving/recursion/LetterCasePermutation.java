@@ -3,7 +3,7 @@ package com.deisgn.practice.problem.solving.recursion;
 public class LetterCasePermutation {
 
 	public static void solution(StringBuilder ip, String op) {
-		if (ip.isEmpty()) {
+		if (ip.length() == 0) {
 			System.out.println(op);
 			return;
 		}

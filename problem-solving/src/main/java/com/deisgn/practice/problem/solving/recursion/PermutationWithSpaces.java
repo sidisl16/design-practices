@@ -4,7 +4,7 @@ public class PermutationWithSpaces {
 
 	public static void solution(StringBuilder ip, String op) {
 
-		if (ip.isEmpty()) {
+		if (ip.length() == 0) {
 			System.out.println(op.toString());
 			return;
 		}
